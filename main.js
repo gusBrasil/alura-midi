@@ -9,13 +9,16 @@ for (let contador = 0; contador < listaTeclas.length; contador++) {
     const instrumento = tecla.classList[1];
     //templateString
     const idAudio = `#som_${instrumento}`;
-    
+
     tecla.onclick = function () {
         tocaSom(idAudio);
     }
-    
-    tecla.onkeydown = function () {
-        tecla.classList.add('ativa');
+
+    tecla.onkeydown = function (evento) {
+
+        if (evento.code == 'Space') {
+            tecla.classList.add('ativa');
+        }
     }
 
     tecla.onkeyup = function () {
